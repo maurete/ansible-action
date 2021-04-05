@@ -1,4 +1,4 @@
-name: Ansible Playbook
+name: Run Ansible Playbook
 author: Mauro Torrez
 description: Run Ansible playbook
 
