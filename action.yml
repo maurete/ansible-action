@@ -1,15 +1,38 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: Ansible Playbook
+author: Mauro Torrez
+description: Run Ansible playbook
+
+branding:
+  icon: server
+  color: gray-dark
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+  playbook:
+    description: Name of the playbook to execute.
+    required: yes
+  arguments:
+    description: Extra arguments for the playbook.
+    required: no
+  working-directory:
+    description: Working directory.
+    required: no
+  aws-access-key-id:
+    description: AWS Access Key ID.
+    required: no
+  aws-secret-access-key:
+    description: AWS Secret Access Key.
+    required: no
+  aws-session-token:
+    description: AWS Session Token
+    required: no
+  aws-region:
+    description: AWS Region, e.g. us-east-1
+    required: no
+
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  command:
+    description: Command to be executed.
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
