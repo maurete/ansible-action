@@ -1,23 +1,47 @@
-# Hello world docker action
+# Ansible playbook action
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
+This action allows running an Ansible playbook. It comes with `boto3` and the AWS CLI preinstalled.
 
 ## Inputs
 
-### `who-to-greet`
+### `playbook`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** the name of the playbook to execute.
+
+### `arguments`
+
+Extra arguments for the playbook.
+
+### `working-directory`
+
+Set a different working directory. By default the project root is used.
+
+### `aws-access-key-id`
+
+AWS Access Key ID.
+
+### `aws-secret-access-key`
+
+AWS Secret Access Key.
+
+### `aws-session-token`
+
+AWS Session Token
+
+### `aws-region`
+
+AWS Region, e.g. us-east-1
 
 ## Outputs
 
-### `time`
+### `command`
 
-The time we greeted you.
+The actual ansible-playbook command to be executed.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-docker-action@master
+uses: maurete/ansible-action@main
 with:
-  who-to-greet: 'Mona the Octocat'
+  playbook: playbook.yml
 ```
