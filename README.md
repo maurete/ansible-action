@@ -12,23 +12,23 @@ This action allows running an Ansible playbook. It comes with `boto3` and the AW
 
 Extra arguments for the playbook.
 
-### `working-directory`
+### `working_directory`
 
 Set a different working directory. By default the project root is used.
 
-### `aws-access-key-id`
+### `aws_access_key_id`
 
 AWS Access Key ID.
 
-### `aws-secret-access-key`
+### `aws_secret_access_key`
 
 AWS Secret Access Key.
 
-### `aws-session-token`
+### `aws_session_token`
 
 AWS Session Token
 
-### `aws-region`
+### `aws_region`
 
 AWS Region, e.g. us-east-1
 
