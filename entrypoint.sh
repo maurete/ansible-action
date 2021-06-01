@@ -38,7 +38,7 @@ COMMAND=ansible-playbook
 
 if [[ -n "${INPUT_ARGUMENTS}" ]]
 then
-  COMMAND="${COMMAND} ${INPUT_ARGUMENTS} ${INPUT_PLAYBOOK}"
+  COMMAND="${COMMAND} ${INPUT_ARGUMENTS}"
 fi
 
 if [[ -n "${INPUT_EXTRA_VARS_YAML}" ]]
