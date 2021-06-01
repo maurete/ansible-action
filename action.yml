@@ -13,6 +13,9 @@ inputs:
   arguments:
     description: Extra arguments for the playbook.
     required: no
+  extra_vars_yaml:
+    description: Extra variables for the playbook in YAML syntax.
+    required: no
   working_directory:
     description: Working directory.
     required: no
