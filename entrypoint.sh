@@ -34,11 +34,13 @@ then
   export AWS_SESSION_TOKEN="${INPUT_AWS_SESSION_TOKEN}"
 fi
 
+
+
 if [[ -z "${INPUT_ARGUMENTS}" ]]
  then
   COMMAND="ansible-playbook ${INPUT_PLAYBOOK}"
 else
-  COMMAND="ansible-playbook ${INPUT_ARGUMENTS//$'\n'/\\n} ${INPUT_PLAYBOOK}"
+  COMMAND="ansible-playbook ${INPUT_ARGUMENTS//$'\n'/\\\\n} ${INPUT_PLAYBOOK}"
 fi
 
 echo "::debug:: Executing command: ${COMMAND}"
