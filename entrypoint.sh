@@ -34,12 +34,20 @@ then
   export AWS_SESSION_TOKEN="${INPUT_AWS_SESSION_TOKEN}"
 fi
 
-if [[ -z "${INPUT_ARGUMENTS}" ]]
- then
-  COMMAND="ansible-playbook ${INPUT_PLAYBOOK}"
-else
-  COMMAND="ansible-playbook ${INPUT_ARGUMENTS} ${INPUT_PLAYBOOK}"
+COMMAND=ansible-playbook
+
+if [[ -n "${INPUT_ARGUMENTS}" ]]
+then
+  COMMAND="${COMMAND} ${INPUT_ARGUMENTS}"
 fi
+
+if [[ -n "${INPUT_EXTRA_VARS_YAML}" ]]
+then
+  echo "${INPUT_EXTRA_VARS_YAML}" > /tmp/extra_vars.yaml
+  COMMAND="${COMMAND} -e @/tmp/extra_vars.yaml"
+fi
+
+COMMAND="${COMMAND} ${INPUT_PLAYBOOK}"
 
 echo "::debug:: Executing command: ${COMMAND}"
 echo ::set-output name=command::${COMMAND}
