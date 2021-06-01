@@ -37,10 +37,12 @@ fi
 COMMAND=ansible-playbook
 
 if [[ -n "${INPUT_ARGUMENTS}" ]]
+then
   COMMAND="${COMMAND} ${INPUT_ARGUMENTS} ${INPUT_PLAYBOOK}"
 fi
 
 if [[ -n "${INPUT_EXTRA_VARS_YAML}" ]]
+then
   echo "${INPUT_EXTRA_VARS_YAML}" > /tmp/extra_vars.yaml
   COMMAND="${COMMAND} -e @/tmp/extra_vars.yaml"
 fi
